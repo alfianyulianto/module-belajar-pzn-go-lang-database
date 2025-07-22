@@ -1,0 +1,4 @@
+** Eksekusi Perintah SQL **
+- Saat membaut aplikasi menggunakan database, sudah pasti kita ingin berkomunikasi dengan database menggunakan perintah SQL
+- Di Go-Lang juga menyediakan function yang bisa kita gunakan untuk mengirim perintah SQL ke database menggunakan function "(DB) ExceContext(contex, sql, params)"
+- Ketika mengirim perintah SQL kita butuh mengirimkan contex, dan dengan context kita bisa mengirim sinyal cancel jika ingi membatalkan pengiriman perintah SQLnya

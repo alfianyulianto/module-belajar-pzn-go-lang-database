@@ -1,0 +1,5 @@
+** Database Driver **
+- Sebelum membuat kode program menggunakan database di Go-Lang, terlebih dahulu kita wajib menambahkan driver database nya
+- Tanpa driver database, maka package database di Go-Lang tidka mengerti apapun, karena hanya berisi kontrak interfacenya
+- https://golang.org/s/sqldrivers
+- database mysql driver : https://github.com/go-sql-driver/mysql/

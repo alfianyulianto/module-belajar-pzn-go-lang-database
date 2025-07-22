@@ -1,0 +1,9 @@
+** Database Transaction **
+- Salah satu fitur andalan di database adalah transaction
+
+** Transaction di Go-Lang **
+- Secara default semua perintah SQL yang kita kirim menggunakan Go-Lang akan otomatis di comment atau istilahnya auto commit
+- Namun kita bisa menggunakan fitur transaksi sehingga SQL yang kita kirim tidak secara otomatis di commit ke database
+- Untuk memulai transaksi kita bisa menggunakan funuction "(DB) Begin()", dimana akan menghasilkan stuct Tx yang merupakan representasi Transaction
+- Struct Tx ini yang kita gunakan sebagain pengganti DB untuk melakukan transaksi, dimana hampir semua function di DB ada di Tx, seperti Exec, Query atau Prepare
+- Setelah selesai prose transaksi, kita busa gunakan function "(Tx) Commit()" untuk melakukan commit atau Rollback()

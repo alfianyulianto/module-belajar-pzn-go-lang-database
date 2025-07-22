@@ -1,0 +1,11 @@
+** Database Pooling **
+- sql.DB di Golang sebenarnya bukanlah sebuah koneksi ke database
+- Melainkan sebuah pool ke database atau dikenal dengan konsep Database Pooling (kumpulan dari koneksi database)
+- Di dalam sql.DB Go-Lang melakukan management koneksi ke database secara otomatis. Hal ini menjadikan kita tidak perlu melakukan management koneksi database secara manual
+- Dengan kemampuan database pooling ini kita bisa menentukan jumlah minimal dan maksimal koneksi yang dibuat oleh Go-Lang, sehingga tidak membanjiri koneksi ke database, karena biasanya ada bata maksimal koneksi yang bisa ditangani oleh database yang kita gunakan
+
+** Pengaturan Database Pooling **
+- (DB) SetMaxIdleConns(number) : pengaturan berapa jumlah koneksi minimal yang dibuat
+- (DB) SetMaxOpenConns(number) : pengaturan berapa jumlah koneksi maksimal yang dibuat
+- (DB) SetConnMaxIdle(duration) : pengaturan berapa lama koneksi yang sudah tidak digunakan akan dihapus
+- (DB) SetConnMaxLifeTime(duration) : pengaturan berapa lama koneksi boleh digunakan (digunakan untuk renew koneksi, untuk jaga-jaga ketika ada koneksi yang rusak)

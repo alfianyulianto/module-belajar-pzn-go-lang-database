@@ -1,0 +1,33 @@
+** Tipe Data Column **
+- Sebelumnya kita hanya membuat table dengan tipe data di kolom yang berupa VARCHAR
+- Untuk VARCHAR di database biasannya kita gunakan String di Go-Lang
+- Bagaimana dengan tipe data yang lain?
+- Apa representasi di Go-Lang misal tipe data timestamp, date dan lain-lain
+
+** Mapping Tipe Data **
+- VARCHAR, CHAR : string
+- INT, BIGINT : int32, int64
+- FLOAT, DOUBLE : float32, float64
+- BOOLEAN : bool
+- DATE, DATETIME, TIME, TIMESTAMP : time.Time
+
+** Error Tipe Data Date **
+- Secara default Driver MySQl untuk Go-Lang akan melakukan query tipe data DATE, DATETIME, TIMESTAMP menjadi []byte / []uint8. Dimana ini bisa dikonversi menjadi String lalu di parsing menjadi time.Time
+- Namun hal ini merepotkan jika dilakukan manual, kita bisa meminta Driver MySQL untuk Go-Lang secara otomatis melakukan parsing dengan menambahkan parameter parseTime=true
+
+
+** Nullable Type **
+- Go-Lang database tidak mengerti dengan tipe data NULL di database
+- Oleh karena itu khusus untuk kolom yang bisa NULL di database akan menjadi masalah jika kita melakukan Scan secara bulat-bulat menggunakan tipe data representasinya di Go-Lang
+
+** Error Data Null **
+- Konversi secara otomatis NULL tidak didukung oleh Driver MySQL Go-Lang
+- Oleh karena itu khusus tipe kolom bisa NULL kita perlu menggunakan tipe data yang ada dalam package sql
+
+** Tipe Data Nullable **
+- string : database/sql.NullString
+- boolean : database/sql.NullBool
+- float64 : database/sql.NullFloat64
+- int32 : database/sql.NullInt32
+- int64 : database/sql.NullInt64
+- time.Time : database/sql.NullTime
